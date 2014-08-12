@@ -2,10 +2,10 @@
 namespace Grav\Plugin;
 
 use Grav\Common\Page\Collection;
-use \Grav\Common\Plugin;
-use \Grav\Common\Registry;
-use \Grav\Common\Uri;
-use \Grav\Common\Taxonomy;
+use Grav\Common\Plugin;
+use Grav\Common\Registry;
+use Grav\Common\Uri;
+use Grav\Common\Taxonomy;
 
 class RandomPlugin extends Plugin
 {
