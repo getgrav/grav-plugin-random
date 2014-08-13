@@ -12,7 +12,7 @@ You should now have all the plugin files under
 
 Usage
 =====
-`Random` creates a **route** that you define and based on the **taxonomy** filters.
+`Random` creates a **route** that you define and based on the **taxonomy** filters it picks a random item.
 To customize the plugin you firstly need to create an override config. To do so, create the folder `config/plugins` (if it doesn't exist already) and copy the [random.yaml](random.yaml) config file in there.
 
 Now you can edit it and tweak it however you prefer.
