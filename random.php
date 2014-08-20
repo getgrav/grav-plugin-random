@@ -13,14 +13,14 @@ class RandomPlugin extends Plugin
      */
     public static function getSubscribedEvents() {
         return [
-            'onAfterInitPlugins' => ['onAfterInitPlugins', 0],
+            'onPluginsInitialized' => ['onPluginsInitialized', 0],
         ];
     }
 
     /**
      * Activate plugin if path matches to the configured one.
      */
-    public function onAfterInitPlugins()
+    public function onPluginsInitialized()
     {
         /** @var Uri $uri */
         $uri = $this->grav['uri'];
@@ -28,7 +28,7 @@ class RandomPlugin extends Plugin
 
         if ($route && $route == $uri->path()) {
             $this->enable([
-                'onAfterGetPage' => ['onAfterGetPage', 0]
+                'onPageInitialized' => ['onPageInitialized', 0]
             ]);
         }
     }
@@ -36,7 +36,7 @@ class RandomPlugin extends Plugin
     /**
      * Display random page.
      */
-    public function onAfterGetPage()
+    public function onPageInitialized()
     {
         /** @var Taxonomy $taxonomy_map */
         $taxonomy_map = $this->grav['taxonomy'];
