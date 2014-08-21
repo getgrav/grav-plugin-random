@@ -50,7 +50,7 @@ class RandomPlugin extends Plugin
                     $collection->append($taxonomy_map->findTaxonomy([$taxonomy => $items])->toArray());
                 }
             }
-
+            unset($this->grav['page']);
             $this->grav['page'] = $collection->random()->current();
         }
     }
