@@ -12,9 +12,8 @@ keywords: random, plugin, blog, pages
 bugs: https://github.com/getgrav/grav-plugin-random/issues
 license: MIT
 
-validation: strict
-
 form:
+  validation: strict
   fields:
     enabled:
       type: toggle
