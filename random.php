@@ -43,15 +43,17 @@ class RandomPlugin extends Plugin
 
         $filters = (array) $this->config->get('plugins.random.filters');
 
-        if (count($filters) > 0) {
+        if (count($filters)) {
             $collection = new Collection();
             foreach ($filters as $taxonomy => $items) {
                 if (isset($items)) {
                     $collection->append($taxonomy_map->findTaxonomy([$taxonomy => $items])->toArray());
                 }
             }
-            unset($this->grav['page']);
-            $this->grav['page'] = $collection->random()->current();
+            if (count($collection)) {
+                unset($this->grav['page']);
+                $this->grav['page'] = $collection->random()->current();
+            }
         }
     }
 }

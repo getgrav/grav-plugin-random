@@ -16,19 +16,34 @@ You should now have all the plugin files under
 
 `Random` creates a **route** that you define. Based on the **taxonomy** filters, it picks a random item.
 
+By default `Random` looks for all page that are have taxonomy that match those in the plugin's `filter` settings.  For this content to find _anything_ you need to define at
+least one page with a matching taxonomy.  As the default value of the filter is `category: blog` you must have at least one page with this taxonomy. For example:
+
+    ---
+    title: Home
+    taxonomy:
+        category: blog
+    ---
+
+    # Grav is Running!
+    ## You have installed **Grav** successfully
+
+    Congratulations! You have installed the **Base Grav Package** that provides a **simple page** and the default **antimatter** theme to get you started.
+
+
+# Settings Defaults
+
+    route: /random
+    filters:
+        category: blog
+
+# Customizing the Settings
+
 To customize the plugin, you first need to create an override config. To do so, create the folder `user/config/plugins` (if it doesn't exist already) and copy the [random.yaml](random.yaml) config file in there.
 
 Now you can edit it and tweak it however you prefer.
 
 For further help with the `filters` settings, please refer to our [Taxonomy][taxonomy] and [Headers][headers] documentation.
-
-# Config Defaults
-
-```
-route: /random
-filters:
-    category: blog
-```
 
 [taxonomy]: http://learn.getgrav.org/content/taxonomy
 [headers]: http://learn.getgrav.org/content/headers
