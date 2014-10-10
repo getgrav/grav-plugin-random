@@ -1,9 +1,19 @@
-name: Random Post Plugin
-version: 1.0.0
-description: This is an RSS feed plugin for Grav.
-validation: strict
+name: Random
+version: 1.1.1
+description: Allows to randomly select a page from a collection of pages. Flexible **filters** provide maximum reconfigurability.
+icon: refresh
+author:
+  name: Team Grav
+  email: devs@getgrav.org
+  url: http://getgrav.org
+homepage: https://github.com/getgrav/grav-plugin-random
+demo: http://demo.getgrav.org/blog-skeleton
+keywords: random, plugin, blog, pages
+bugs: https://github.com/getgrav/grav-plugin-random/issues
+license: MIT
 
 form:
+  validation: strict
   fields:
     enabled:
       type: toggle
