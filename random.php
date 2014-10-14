@@ -22,6 +22,11 @@ class RandomPlugin extends Plugin
      */
     public function onPluginsInitialized()
     {
+        if ($this->isAdmin()) {
+            $this->active = false;
+            return;
+        }
+
         /** @var Uri $uri */
         $uri = $this->grav['uri'];
         $route = $this->config->get('plugins.random.route');
@@ -38,6 +43,8 @@ class RandomPlugin extends Plugin
      */
     public function onPageInitialized()
     {
+        if (!$this->active) return;
+
         /** @var Taxonomy $taxonomy_map */
         $taxonomy_map = $this->grav['taxonomy'];
 
