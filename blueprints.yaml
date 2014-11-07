@@ -26,13 +26,6 @@ form:
       validate:
         type: bool
 
-    filters.category:
-      type: text
-      label: Category filter
-      help: Comma separated list of category names
-      validate:
-        type: commalist
-
     built_in_css:
       type: toggle
       label: Use built in CSS
@@ -42,4 +35,23 @@ form:
         1: Enabled
         0: Disabled
       validate:
-        type: bool
+        type: bool        
+
+    filters.category:
+      type: text
+      label: Category filter
+      help: Comma separated list of category names
+      validate:
+        type: commalist
+
+    filter_combinator:
+      type: select
+      size: medium
+      classes: fancy
+      label: Filter Combinator
+      default: and
+      options:
+        and: And - Boolean &&
+        or: Or - Boolean ||    
+
+

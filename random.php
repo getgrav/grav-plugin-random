@@ -43,20 +43,19 @@ class RandomPlugin extends Plugin
      */
     public function onPageInitialized()
     {
-        if (!$this->active) return;
+        if (!$this->active) {
+            return;
+        }
 
         /** @var Taxonomy $taxonomy_map */
         $taxonomy_map = $this->grav['taxonomy'];
 
         $filters = (array) $this->config->get('plugins.random.filters');
+        $operator = $this->config->get('plugins.random.filter_combinator', 'and');
 
         if (count($filters)) {
             $collection = new Collection();
-            foreach ($filters as $taxonomy => $items) {
-                if (isset($items)) {
-                    $collection->append($taxonomy_map->findTaxonomy([$taxonomy => $items])->toArray());
-                }
-            }
+            $collection->append($taxonomy_map->findTaxonomy($filters, $operator)->toArray());
             if (count($collection)) {
                 unset($this->grav['page']);
                 $this->grav['page'] = $collection->random()->current();
