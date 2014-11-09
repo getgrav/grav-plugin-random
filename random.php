@@ -58,7 +58,14 @@ class RandomPlugin extends Plugin
             $collection->append($taxonomy_map->findTaxonomy($filters, $operator)->toArray());
             if (count($collection)) {
                 unset($this->grav['page']);
-                $this->grav['page'] = $collection->random()->current();
+                $page = $collection->random()->current();
+                $this->grav['page'] = $page;
+
+                // Convince the URI object that it is this random page...
+                $uri = $this->grav['uri'];
+                $uri->url = $uri->base().$page->url();
+                $uri->init();
+
             }
         }
     }
