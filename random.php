@@ -22,6 +22,11 @@ class RandomPlugin extends Plugin
      */
     public function onPluginsInitialized()
     {
+        if ($this->isAdmin()) {
+            $this->active = false;
+            return;
+        }
+
         /** @var Uri $uri */
         $uri = $this->grav['uri'];
         $route = $this->config->get('plugins.random.route');
@@ -38,21 +43,29 @@ class RandomPlugin extends Plugin
      */
     public function onPageInitialized()
     {
+        if (!$this->active) {
+            return;
+        }
+
         /** @var Taxonomy $taxonomy_map */
         $taxonomy_map = $this->grav['taxonomy'];
 
         $filters = (array) $this->config->get('plugins.random.filters');
+        $operator = $this->config->get('plugins.random.filter_combinator', 'and');
 
         if (count($filters)) {
             $collection = new Collection();
-            foreach ($filters as $taxonomy => $items) {
-                if (isset($items)) {
-                    $collection->append($taxonomy_map->findTaxonomy([$taxonomy => $items])->toArray());
-                }
-            }
+            $collection->append($taxonomy_map->findTaxonomy($filters, $operator)->toArray());
             if (count($collection)) {
                 unset($this->grav['page']);
-                $this->grav['page'] = $collection->random()->current();
+                $page = $collection->random()->current();
+                $this->grav['page'] = $page;
+
+                // Convince the URI object that it is this random page...
+                $uri = $this->grav['uri'];
+                $uri->url = $uri->base().$page->url();
+                $uri->init();
+
             }
         }
     }
