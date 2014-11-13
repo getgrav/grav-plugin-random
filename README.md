@@ -1,7 +1,5 @@
 # Grav Random Plugin
 
-![Random](assets/readme_1.png)
-
 `Random` is a [Grav][grav] Plugin which allows a random article to load based on its taxonomy filters.
 
 # Installation
@@ -60,6 +58,8 @@ Now you can edit it and tweak it however you prefer.
 For further help with the `filters` settings, please refer to our [Taxonomy][taxonomy] and [Headers][headers] documentation.
 
 # Creating a "Random Article" Button
+
+![Random](assets/readme_1.png)
 
 In our [Blog Skeleton](http://demo.getgrav.org/blog-skeleton/) we placed a button in the sidebar that pulls up a random blog post. Here is the code we used in the `sidebar.html.twig` template file to create this button.
 
