@@ -43,10 +43,6 @@ class RandomPlugin extends Plugin
      */
     public function onPageInitialized()
     {
-        if (!$this->active) {
-            return;
-        }
-
         /** @var Taxonomy $taxonomy_map */
         $taxonomy_map = $this->grav['taxonomy'];
 
