@@ -11,7 +11,8 @@ class RandomPlugin extends Plugin
     /**
      * @return array
      */
-    public static function getSubscribedEvents() {
+    public static function getSubscribedEvents()
+    {
         return [
             'onPluginsInitialized' => ['onPluginsInitialized', 0],
         ];
@@ -43,10 +44,6 @@ class RandomPlugin extends Plugin
      */
     public function onPageInitialized()
     {
-        if (!$this->active) {
-            return;
-        }
-
         /** @var Taxonomy $taxonomy_map */
         $taxonomy_map = $this->grav['taxonomy'];
 
