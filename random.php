@@ -56,6 +56,8 @@ class RandomPlugin extends Plugin
             if (count($collection)) {
                 unset($this->grav['page']);
                 $page = $collection->random()->current();
+                // override the modified time
+                $page->modified(time());
                 $this->grav['page'] = $page;
 
                 // Convince the URI object that it is this random page...
