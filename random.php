@@ -56,15 +56,19 @@ class RandomPlugin extends Plugin
             if (count($collection)) {
                 unset($this->grav['page']);
                 $page = $collection->random()->current();
-                // override the modified time
-                $page->modified(time());
-                $this->grav['page'] = $page;
 
-                // Convince the URI object that it is this random page...
-                $uri = $this->grav['uri'];
-                $uri->url = $uri->base().$page->url();
-                $uri->init();
+                if ($this->config->get('plugins.random.redirect', true)) {
+                    $this->grav->redirect($page->url(true));
+                } else {
+                    // override the modified time
+                    $page->modified(time());
+                    $this->grav['page'] = $page;
 
+                    // Convince the URI object that it is this random page...
+                    $uri = $this->grav['uri'];
+                    $uri->url = $uri->base().$page->url();
+                    $uri->init();
+                }
             }
         }
     }
