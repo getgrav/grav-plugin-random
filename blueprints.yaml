@@ -45,7 +45,7 @@ form:
         type: bool
 
     filters:
-      type: text
+      type: selectize
       label: Category filter
       help: Comma separated list of category names
       validate:
