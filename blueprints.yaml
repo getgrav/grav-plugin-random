@@ -26,16 +26,23 @@ form:
       validate:
         type: bool
 
-    built_in_css:
+    route:
+      type: text
+      size: medium
+      label: Route
+      default: /random
+      help: Default route of the random plugin
+
+    redirect:
       type: toggle
-      label: Use built in CSS
+      label: Redirect
       highlight: 1
       default: 1
       options:
         1: Enabled
         0: Disabled
       validate:
-        type: bool        
+        type: bool
 
     filters:
       type: text
@@ -53,5 +60,3 @@ form:
       options:
         and: And - Boolean &&
         or: Or - Boolean ||
-
-
