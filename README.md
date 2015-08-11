@@ -89,7 +89,7 @@ This command will check your Grav install to see if your Random plugin is due fo
 Manually updating Random is pretty simple. Here is what you will need to do to get this done:
 
 * Delete the `your/site/user/plugins/random` directory.
-* Downalod the new version of the Random plugin from either [GitHub](https://github.com/getgrav/grav-plugin-random) or [GetGrav.org](http://getgrav.org/downloads/plugins#extras).
+* Download the new version of the Random plugin from either [GitHub](https://github.com/getgrav/grav-plugin-random) or [GetGrav.org](http://getgrav.org/downloads/plugins#extras).
 * Unzip the zip file in `your/site/user/plugins` and rename the resulting folder to `random`.
 * Clear the Grav cache. The simplest way to do this is by going to the root Grav directory in terminal and typing `bin/grav clear-cache`.
 
