@@ -44,7 +44,7 @@ form:
       validate:
         type: bool
 
-    filters:
+    filters.category:
       type: selectize
       label: Category filter
       help: Comma separated list of category names
