@@ -1,5 +1,5 @@
 name: Random
-version: 1.4.0
+version: 1.5.0
 description: Allows to randomly select a page from a collection of pages. Flexible **filters** provide maximum reconfigurability.
 icon: refresh
 author:
@@ -44,7 +44,7 @@ form:
       validate:
         type: bool
 
-    filters:
+    filters.category:
       type: selectize
       label: Category filter
       help: Comma separated list of category names
